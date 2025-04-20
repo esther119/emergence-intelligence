@@ -23,6 +23,21 @@ Think of redshift (z) as a time machine:
 - z = 3: We're seeing light from about 11.5 billion years ago
 - z = 4: We're seeing light from about 12.2 billion years ago
 
+## The Math Behind Redshift ➗
+
+In our plot, we use a special formula to convert redshift into cosmic time:
+
+```python
+time = 13.8 * (1 - 1/sqrt(redshift + 1))
+```
+
+This formula tells us:
+
+- 13.8 represents the current age of the universe in billions of years
+- The relationship between time and redshift is not straight (linear)
+- This non-linear relationship exists because the universe's expansion has not been constant
+- Higher redshift values represent exponentially earlier times in the universe
+
 ## Understanding Our Star Formation Plot 📊
 
 Our plot shows three important periods in the universe's history:
@@ -53,5 +68,21 @@ Understanding star formation and redshift helps us:
 - Understand when most stars (and their planets) formed
 - Learn about our own cosmic history
 - Figure out how galaxies grow and change
+- Calculate precise ages of distant objects we observe
 
-The next time you look at the night sky, remember: some of that light has been traveling for billions of years to reach us, and the redshift tells us exactly how long that journey was! 🌌
+## Fun Fact! 🎯
+
+Because of the non-linear relationship between time and redshift, when we look at an object with redshift z=1, we're not looking halfway back in time. Instead, we're looking back to when the universe was about 5.9 billion years old. This is why the redshift formula is so important for astronomers!
+
+Example:
+Using the formula: time = 13.8 \* (1 - 1/√(z+1))
+
+For z=1:
+time = 13.8 _ (1 - 1/√2)
+≈ 13.8 _ 0.2929
+≈ 7.9 billion years
+
+This means:
+
+- The universe was approximately 5.9 billion years old when the light was emitted (13.8 - 7.9 = 5.9)
+- The light has been traveling for about 7.9 billion years to reach us (13.8 - 5.9 = 7.9)
