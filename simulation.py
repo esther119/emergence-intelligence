@@ -3,14 +3,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import skewnorm
+import sys
+import os
 
-# Parameters
+# Add star_formation directory to path to import the module
+sys.path.append("star_formation")
+from star_formation import star_formation_rate
+
+# Simulation parameters
 n_stars = 1000  # number of stars per simulation
 n_simulations = 1000  # number of universe simulations
-mean_star_time = 5000  # mean star formation time (Myr)
-sigma_star_time = 1000  # standard deviation for star formation time
-skewness = 5  # positive skew factor for star formation
-
 mean_life_delay = 1000  # mean life emergence delay (Myr)
 sigma_life_delay = 0.7  # spread of life emergence delay
 
@@ -18,10 +20,14 @@ sigma_life_delay = 0.7  # spread of life emergence delay
 first_arrival_times = []
 
 for _ in range(n_simulations):
-    # Sample star formation times
-    star_times = skewnorm.rvs(
-        a=skewness, loc=mean_star_time, scale=sigma_star_time, size=n_stars
-    )
+    # Sample star formation times using the distribution from star_formation.py
+    # Convert from Gyr to Myr for consistency with the rest of the simulation
+    time_samples = np.linspace(0, 14, n_stars)  # 0 to 14 Gyr as in star_formation.py
+    probabilities = star_formation_rate(time_samples)
+    # Normalize probabilities to use as weights
+    probabilities = probabilities / np.sum(probabilities)
+    # Sample star formation times according to the star formation rate
+    star_times = np.random.choice(time_samples * 1000, size=n_stars, p=probabilities)
 
     # Sample life emergence delays
     delay_times = np.random.lognormal(
@@ -44,21 +50,6 @@ plt.grid(True)
 plt.savefig("inter_arrival_times.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-# Plot the historical star formation rate (simulated)
-# Create a time axis
-time_axis = np.linspace(0, 10000, 1000)
-# Simulated star formation rate: a skewed normal pdf
-sfr_pdf = skewnorm.pdf(time_axis, a=skewness, loc=mean_star_time, scale=sigma_star_time)
-
-plt.figure(figsize=(10, 6))
-plt.plot(time_axis, sfr_pdf, label="Simulated Star Formation Rate", color="blue")
-plt.xlabel("Time (Myr)")
-plt.ylabel("Relative Star Formation Rate")
-plt.title("Historical Star Formation Rate (Simulated)")
-plt.grid(True)
-plt.legend()
-plt.savefig("star_formation_rate.png", dpi=300, bbox_inches="tight")
-plt.close()
 
 # Optional: print basic stats
 print(f"Mean: {np.mean(first_arrival_times):.2f} Myr")

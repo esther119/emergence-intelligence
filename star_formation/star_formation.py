@@ -46,7 +46,10 @@ plt.title("How Many Stars Were Born Throughout Cosmic History?", fontsize=14, pa
 # Add redshift axis on top
 ax2 = plt.twiny()
 redshift = np.array([4, 3, 2, 1, 0])
-time_redshift = 13.8 * (1 - 1 / np.sqrt(redshift + 1))  # Approximate conversion
+# Corrected mapping: redshift z=0 should correspond to 13.8 Gyr
+time_redshift = np.array(
+    [1.6, 2.2, 3.3, 5.9, 13.8]
+)  # Fixed time values corresponding to redshifts
 ax2.set_xlim(0, 14)
 ax2.set_xticks(time_redshift)
 ax2.set_xticklabels([f"z={z}" for z in redshift])

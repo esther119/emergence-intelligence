@@ -12,6 +12,10 @@ This is exactly what happens with light from distant galaxies! Instead of sound 
 - When galaxies move away from us, their light gets stretched out
 - Stretched light appears more red to us (that's why we call it "redshift")
 - The more stretched the light, the further away the galaxy is
+- The higher the redshift:
+  - The more the universe has expanded since the light was emitted
+  - The greater the actual distance light had to travel compared to the original distance
+  - The longer the journey time for the light
 
 ## Redshift Values (z) Explained 🔭
 
@@ -31,12 +35,14 @@ In our plot, we use a special formula to convert redshift into cosmic time:
 time = 13.8 * (1 - 1/sqrt(redshift + 1))
 ```
 
+(this formula needs to be researched)
+
 This formula tells us:
 
 - 13.8 represents the current age of the universe in billions of years
 - The relationship between time and redshift is not straight (linear)
 - This non-linear relationship exists because the universe's expansion has not been constant
-- Higher redshift values represent exponentially earlier times in the universe
+- Higher redshift values represent exponentially earlier times in the universe.
 
 ## Understanding Our Star Formation Plot 📊
 
