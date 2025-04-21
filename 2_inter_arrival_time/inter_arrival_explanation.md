@@ -52,6 +52,10 @@ Some key observations from the simulation:
 - The distribution shape changes significantly as civilization count increases
 - Even with many civilizations, there's still variability in when the first two emerge
 
+## Conclusions
+
+The time between the emergence of the first civilization within the Milky Way and all subsequent civilizations could be enormous. Just what could a civilization do with a ten million, one hundred million, or half billion year head start (Kardashev 1964)? If, for example, civilizations uniformly arise within the Galactic Habitable Zone, then on these timescales the first civilization would be able to reach the solar system of the second civilization long before it evolved even travelling at a very modest fraction of light speed (Bracewell 1974, 1982; Freitas 1980). What impact would the arrival of the first civilization have on the future evolution of the second civilization? Would the second civilization even be allowed to evolve? Attempting to answer these questions leads to one of two basic conclusions, the first is that we are alone in the Galaxy and thus no one has passed this way, and the second is that we are not alone in the Galaxy and someone has passed this way and then deliberately left us alone.
+
 ## Dependencies
 
 The script requires:
