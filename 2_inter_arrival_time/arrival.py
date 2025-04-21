@@ -6,14 +6,10 @@ from scipy.stats import skewnorm
 import sys
 import os
 
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Import star_formation_rate from star_formation package
-from star_formation.star_formation import star_formation_rate
+sys.path.append("../1_star_formation")
+from star_formation import star_formation_rate
 
 # Simulation parameters
-n_stars = 1000  # number of stars per simulation
 n_simulations = 1000  # number of universe simulations
 mu_e = 13000  # mean time of emergence (Myr)
 sigma_e = 1500  # standard deviation for emergence time (Myr)
@@ -67,6 +63,20 @@ for i, N_civ in enumerate(n_civ_values):
     axs[i].set_title(f"IAT₁ Distribution with n_civ = {N_civ}")
     axs[i].set_xlim(min_iat, max_iat)
     axs[i].grid(True)
+
+    # Add IAT statistics as text annotation
+    stats_text = (
+        f"Mean: {stats[N_civ]['mean']:.2f} Myr\nStd Dev: {stats[N_civ]['std']:.2f} Myr"
+    )
+    axs[i].text(
+        0.95,
+        0.95,
+        stats_text,
+        transform=axs[i].transAxes,
+        verticalalignment="top",
+        horizontalalignment="right",
+        bbox=dict(facecolor="white", alpha=0.8, edgecolor="gray"),
+    )
 
 plt.tight_layout()
 plt.savefig("inter_arrival_times_comparison.png", dpi=300, bbox_inches="tight")
