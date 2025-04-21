@@ -75,10 +75,9 @@ python 2_inter_arrival_time/avg_iat_plot.py
 - Matplotlib
 - SciPy
 
-## License
-
-[Add your license information here]
-
 ## Citation
 
-If you find this work useful for academic research, please cite the relevant publications associated with this work.
+Temporal Dispersion of the Emergence of Intelligence
+Hair, T. W. (2011). Temporal dispersion of the emergence of intelligence: an inter-arrival time analysis. International Journal of Astrobiology, 10(2), 131-135.
+Cambridge University Press & Assessment.
+https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/temporal-dispersion-of-the-emergence-of-intelligence-an-interarrival-time-analysis/
